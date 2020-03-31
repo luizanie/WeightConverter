@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Converter</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <style>
+    body {
+      margin-top: 70px;
+      background-color: #dddd;
+      color: #000;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6 offset-md-3">
+        <h1 class="display-4 text-center mb-3 text-primary">
+          Przelicznik wagi
+        </h1>
+        <form>
+          <div class="form-group">
+            <input id="grInput" type="number" class="form-control form-control-lg" placeholder="wpisz gramy..">
+          </div>
+        </form>
+
+        <div id="Output">
+          <div class="card bg-secondary mb-2">
+            <div class="card-block">
+              <h4> Dekagram [dag]:</h4>
+              <div id="dagOutPut"></div>
+            </div>
+          </div>
+
+          <div class="card bg-success mb-2">
+            <div class="card-block">
+              <h4>Kilogram [kg]:</h4>
+              <div id="kgOutPut"></div>
+            </div>
+          </div>
+          <div class="card bg-secondary mb-2">
+            <div class="card-block">
+              <h4> Uncja [ounce]:</h4>
+              <div id="ounceOutPut"></div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  </div>
+
+  <script>
+    document.getElementById('Output').style.visibility = 'hidden';
+
+    document.getElementById("grInput").addEventListener('input', function (e) {
+
+      document.getElementById('Output').style.visibility = 'visible';
+
+      let grams = e.target.value;
+
+      document.getElementById('dagOutPut').innerHTML = (grams / 10).toFixed(3);
+
+      document.getElementById('kgOutPut').innerHTML = (grams / 1000).toFixed(3);
+
+      document.getElementById('ounceOutPut').innerHTML = (grams / 28.35).toFixed(3);
+    })
+  </script>
+</body>
+
+</html>
